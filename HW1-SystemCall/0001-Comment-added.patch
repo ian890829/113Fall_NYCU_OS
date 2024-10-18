@@ -1,0 +1,48 @@
+From c5fd9a23659a67ad9aa420e1a6c7c27b0639d9e2 Mon Sep 17 00:00:00 2001
+From: Ian <ooo6312970@gmail.com>
+Date: Fri, 18 Oct 2024 07:25:29 +0000
+Subject: [PATCH] Comment added
+
+---
+ kernel/revstr/sys_revstr.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/revstr/sys_revstr.c b/kernel/revstr/sys_revstr.c
+index 015a527ce590..c9c142aa2011 100644
+--- a/kernel/revstr/sys_revstr.c
++++ b/kernel/revstr/sys_revstr.c
+@@ -3,16 +3,18 @@
+ #include <linux/syscalls.h>
+ #include <linux/uaccess.h>
+ 
++//SYSCALL_DEFINE2(systemCallName,typeOfInput1,input1,typeOfInput2,input2)
++//__user specify the input pointer point to user space memory
+ SYSCALL_DEFINE2(revstr, char __user *, input, size_t, len)
+ {
+     char *k_buffer;
+     int i;
+ 
+ 
+-    // Allocate kernel memory
++    // Allocate kernel memory with len+1 bytes
+     k_buffer = kmalloc(len + 1, GFP_KERNEL);
+ 
+-
++    // copy_from_user(to,from,bytes)
+     copy_from_user(k_buffer, input, len);
+     k_buffer[len] = '\0';
+ 
+@@ -27,8 +29,10 @@ SYSCALL_DEFINE2(revstr, char __user *, input, size_t, len)
+ 
+     printk(KERN_INFO "The reversed string: %s\n", k_buffer);
+ 
++    //copy_to_user(to,from,bytes)
+     copy_to_user(input, k_buffer, len);
+ 
++    //free the kernel space memory
+     kfree(k_buffer);
+     return 0;
+ }
+-- 
+2.43.0
+
