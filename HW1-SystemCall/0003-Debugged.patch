@@ -1,7 +1,7 @@
 From 36c3b84eec35061667414a87a7d8646ed7573e6c Mon Sep 17 00:00:00 2001
 From: Ian <ooo6312970@gmail.com>
 Date: Wed, 16 Oct 2024 08:11:55 +0000
-Subject: [PATCH 3/3] Debugged
+Subject: [PATCH 3/4] Debugged
 
 ---
  include/linux/syscalls.h   |  2 +-

@@ -1,7 +1,7 @@
 From 9902e011326186163e2e55562d5e2d49294e36b2 Mon Sep 17 00:00:00 2001
 From: Ian <ooo6312970@gmail.com>
 Date: Sun, 13 Oct 2024 02:54:23 +0000
-Subject: [PATCH 2/3] After adding new system call
+Subject: [PATCH 2/4] After adding new system call
 
 ---
  arch/x86/entry/syscalls/syscall_64.tbl |  2 +-
